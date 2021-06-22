@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <title>Adrianinoz</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-warpper">
+            <p class="logo">AdrianinoZ<span> SportZ</span></p>
+        </div>
+
+        <a class="Home">Home</a>
+        <a class="Surf">Surf</a>
+        <a class="Climbing">Climbing</a>
+        <a class="Check">Check Out</a>
+        <span class="burger-open" id="burger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16">
+                <g fill="#252a32" fill-rule="evenodd">
+                    <path d="M0 0h24v2H0zM0 7h24v2H0zM0 14h24v2H0z"></path>
+                </g>
+            </svg>
+
+            <ul id="menu">
+                <li><a>Home</a></li>
+                <li><a>Check Out</a></li>
+            </ul>
+        </span>
+
+    </nav>
+
+    <div class="row1">
+        <div class="row1-left">
+            <img src="{{ url_for('static', filename = 'img/left.png') }}">
+            <p>Adrianinoz
+                <br />
+                handcrafted
+                <br />
+                Boards
+            </p>
+        </div>
+        <div class="row1-right">
+
+            <p>Climbing</p>
+        </div>
+    </div>
+
+    <div class="row1-5">
+        <div class="row1-left">
+            <img src="{{ url_for('static', filename = 'img/left.png') }}">
+            <div class="split">
+                <p>Adrianinoz
+                    <br />
+                    handcrafted
+                    <br />
+                    Boards
+                </p>
+
+                <div class="row1-right">
+
+                    <p>Climbing</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row2">
+        <div class="row2-left">
+            Women’s
+            <br />
+            Exclusive
+        </div>
+        <div class="row2-center">
+            Hero Of the
+            <br />
+            Month
+        </div>
+        <div class="row2-right">
+            New
+            <br />
+            Arrivals
+        </div>
+    </div>
+
+
+    <div class="row3">
+
+        <div>
+            Join the Club
+        </div>
+        <div>
+            Sustainablility
+        </div>
+
+    </div>
+
+    {% if category %}
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>category</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in category %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+
+</html>
