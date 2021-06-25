@@ -27,9 +27,10 @@ def INSERT(table_name: str, table_fields: dict):
         values += (_,)
     for _ in table_fields:
         keys += (_,)
-    command = "INSERT INTO {} {} VALUES (%s, %s, %s, %s)".format(
+    command = "INSERT INTO {} {} VALUES ({})".format(
         table_name,
         keys,
+        str("%s ,"*len(table_fields))[:-1]
     )
     mycursor.execute(str(command).replace("'", ''), values)
     mydb.commit()
@@ -87,3 +88,4 @@ x = SELECT_WHERE('products', [
     'category',
     'climbing'
 )
+print(x)

@@ -432,3 +432,45 @@ svg {
 
 
 }
+
+.row-products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.row-products .products-card-box {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 300px;
+    min-width: 100px;
+    padding: 15px;
+}
+
+.row-products .products-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #1111;
+}
+
+.products-card .products-card-image {
+    width: 100%;
+}
+
+.products-card .products-card-image img {
+    width: 100%;
+}
+
+.products-card-title {
+    font-weight: 900;
+    text-align: center;
+}
+
+.products-card-description {
+    font-weight: 100;
+    font-size: 12px;
+    text-align: center;
+}

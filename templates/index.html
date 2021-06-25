@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adrianinoz</title>
 </head>
 
@@ -100,26 +101,19 @@
     </div>
 
     {% if category %}
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>category</th>
-                <th>description</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in category %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.description }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="row-products">
+        {% for product in category %}
+        <div class="products-card-box">
+            <div class="products-card">
+                <div class="products-card-image">
+                    <img src="{{ product.image_src }}" alt="{{ product.name }}">
+                </div>
+                <span class="products-card-title">{{ product.name }}</span>
+                <span class="products-card-description">{{ product.description }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     {% endif %}
 </body>
 
